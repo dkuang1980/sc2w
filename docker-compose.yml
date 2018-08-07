@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+    mysql:
+        image: mysql:5.7
+        environment:
+            - MYSQL_DATABASE=sc2w
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - ./mysql-data:/var/lib/mysql
+
+    web:
+        image: dkuang1980/sc2w:latest
+        build: .
+        restart: always
+        depends_on:
+            - mysql
+        volumes:
+            - .:/opt/sc2w
+        ports:
+            - "8000:8000"
+        entrypoint: /bin/bash /opt/sc2w/dev_server.sh
+        healthcheck:
+          test: ["CMD", "curl", "-f", "http://mysql:3306"]
+          interval: 5s
+          timeout: 10s
+          retries: 5
