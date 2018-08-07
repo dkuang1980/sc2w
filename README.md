@@ -1,8 +1,8 @@
-#Shortcut2.work
+# Shortcut2.work
 
 ## Run dev stack
 ```
-  sh docker-compose up
+  docker-compose up
 ```
 Then visit http://localhost:8000 on your browser, you should be the webapp UI.
 
