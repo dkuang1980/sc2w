@@ -9,7 +9,6 @@ services:
             - ./mysql-data:/var/lib/mysql
 
     web:
-        image: dkuang1980/sc2w:latest
         build: .
         restart: always
         depends_on:
