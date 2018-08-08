@@ -14,7 +14,7 @@ WORKDIR $PROJECT_HOME
 
 # apt-get install
 RUN apt-get update -y && \
-    apt-get install -y git nano curl iputils-ping netcat
+    apt-get install -y git nano curl iputils-ping netcat dos2unix
 
 # pip install dependencies
 RUN  pip install -r requirements.txt
