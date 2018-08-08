@@ -14,7 +14,7 @@ WORKDIR $PROJECT_HOME
 
 # apt-get install
 RUN apt-get update -y && \
-    apt-get install -y git nano curl iputils-ping 
+    apt-get install -y git nano curl iputils-ping netcat
 
 # pip install dependencies
 RUN  pip install -r requirements.txt

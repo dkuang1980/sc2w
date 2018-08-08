@@ -18,8 +18,3 @@ services:
         ports:
             - "8000:8000"
         entrypoint: /bin/bash /opt/sc2w/dev_server.sh
-        healthcheck:
-          test: ["CMD", "curl", "-f", "http://mysql:3306"]
-          interval: 5s
-          timeout: 10s
-          retries: 5
