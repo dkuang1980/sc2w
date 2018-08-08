@@ -7,7 +7,8 @@ services:
             - MYSQL_ROOT_PASSWORD=root
         volumes:
             - ./mysql-data:/var/lib/mysql
-
+        command: "--innodb_use_native_aio=0"
+        
     web:
         build: .
         restart: always
