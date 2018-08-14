@@ -8,6 +8,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+MEDIA_ROOT = '{}/assets/uploads/'.format(os.environ['PROJECT_HOME'])
 
 DATABASES = {
     'default': {
@@ -15,7 +16,11 @@ DATABASES = {
         'NAME': 'sc2w',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'mysql',  
+        'HOST': 'mysql',
         'PORT': '3306',
+        'OPTIONS': {
+             'init_command': 'SET foreign_key_checks = 0;',
+        }
     }
+    
 }

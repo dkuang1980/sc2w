@@ -1,0 +1,29 @@
+{% extends "registration/base.html" %}
+
+{% load widget_tweaks %}
+
+{% block auth_content %}
+<h3>Signup</h3>
+<form class="form " action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label_tag }}
+        {% render_field field class+="form-control" %}
+        <div class="text-danger">{{ field.errors }}</div>
+        {% if field.help_text and 'password' not in field.name %}
+          <p class="help text-small text-muted">
+            {{ field.help_text|safe }}
+          </p>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <p class="p-1"></p>
+    <button type="submit" class="btn btn-primary btn-block">Signup</button>
+    <input type="hidden" name="next" value="{{ next }}"/>
+</form>
+<div class="flex-center top-gap text-small">
+    <a href="{% url 'login' %}">Already have an account?</a>
+</div>
+
+{% endblock %}

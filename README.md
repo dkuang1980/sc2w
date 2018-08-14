@@ -6,13 +6,16 @@
   * Install docker compose (`pip install docker-compose`)
   * Install Code Editor (Atom: https://flight-manual.atom.io/getting-started/sections/installing-atom/)
   
+## Build docker image
+```
+  docker-compose build
+```
+
 ## Run dev stack
 ```
-  docker-compose up
+  docker-compose run --service-ports  --rm web
+  
+  # inside the container
+  sh dev_server.sh
 ```
 Then visit http://localhost:8000 on your browser, you should be the webapp UI.
-
-## SSH into docker container
-```
-  sh ssh_into_container.sh
-```

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head >
+    {% block head %}
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="shortcut2.work">
+
+      <title>
+        {% block title %} shortcut2.work {% endblock %}
+      </title>
+
+      {% block styles %}
+      {% endblock %}
+
+    {% endblock %}
+  </head>
+
+  <body class="h-100" {% block body_attrs %} {% endblock %}>
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+    {% block inline_scripts %}
+    {% endblock %}
+  </body>
+</html>
