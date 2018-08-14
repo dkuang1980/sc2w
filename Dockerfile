@@ -12,12 +12,14 @@ COPY . $PROJECT_HOME
 # change the current working dir to project home
 WORKDIR $PROJECT_HOME
 
+# apt-get update
+RUN apt-get update -y 
+
 # apt-get install
-RUN apt-get update -y && \
-    apt-get install -y git nano curl iputils-ping netcat dos2unix
+RUN apt-get install -y git nano curl iputils-ping netcat dos2unix
 
 # pip install dependencies
-RUN  pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # start server
 ENTRYPOINT ["/bin/bash", "/opt/sc2w/prod_server.sh"]
